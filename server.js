@@ -7,9 +7,13 @@ let db
 
 let collectionString = 'mongodb+srv://todoappuser:lalaamarji12@cluster0-ju2pj.mongodb.net/todoapp?retryWrites=true&w=majority'
 
+const port = process.env.PORT || 3000
+
 mongodb.connect(collectionString, {useNewUrlParser: true, useUnifiedTopology: true}, (err, res)=>{
   db = res.db()
-  app.listen(3000)
+  app.listen(port, ()=>{
+    console.log('http://127.0.0.1:'+port)
+})
 })
 
 app.use(express.static('./public'))
