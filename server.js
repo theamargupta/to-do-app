@@ -23,7 +23,7 @@ app.use(express.urlencoded({extended: true}))
 const passwordProtections = (req, res, next) => {
   res.set('WWW-Authenticate', 'Basic realm="simple todo app"')
   console.log(req.headers.authorization)
-  if (req.headers.authorization == "Basic YW1hcjoxMjM0"){
+  if (req.headers.authorization == "Basic QW1hcjoxMjM0"){
     next()
   } else {
     res.status(401).send("authentication requires")
